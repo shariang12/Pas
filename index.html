@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAS KENDARAAN</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7f9;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #007166;
+      margin-bottom: 30px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 8px;
+    }
+
+    input {
+      border: 2px solid #007166;
+      width: 80%;
+      max-width: 300px;
+      text-transform: uppercase;
+    }
+
+    button {
+      background-color: #007166;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result-box {
+      display: none;
+      margin-top: 30px;
+      border: 2px solid #007166;
+      padding: 20px;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .nopol {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .info {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #444;
+    }
+
+    .dot {
+      color: green;
+      font-size: 20px;
+      vertical-align: middle;
+      animation: blink 1s infinite;
+    }
+
+    .aktif { color: green; font-weight: bold; }
+    .nonaktif { color: red; font-weight: bold; }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PAS KENDARAAN</h1>
+
+  <input type="text" id="nopolInput" placeholder="Masukkan Nopol (misal: P 3345 DD)">
+  <br>
+  <button onclick="cariNopol()">Cek Nopol</button>
+
+  <div class="result-box" id="hasilBox">
+    <div class="nopol" id="hasilNopol"></div>
+    <div class="info" id="hasilPemilik"></div>
+    <div class="info" id="hasilStatus"></div>
+    <div class="info" id="hasilLokasi"></div>
+  </div>
+
+  <script>
+    async function cariNopol() {
+      const input = document.getElementById('nopolInput').value.trim().toUpperCase().replace(/\s+/g, '');
+      const box = document.getElementById('hasilBox');
+      const nopol = document.getElementById('hasilNopol');
+      const pemilik = document.getElementById('hasilPemilik');
+      const status = document.getElementById('hasilStatus');
+      const lokasi = document.getElementById('hasilLokasi');
+
+      if (!input) {
+        alert("Masukkan nopol kendaraan.");
+        return;
+      }
+
+      try {
+        const res = await fetch('data-nopol.json');
+        const data = await res.json();
+
+        const ditemukan = data.find(item => {
+          const cleanNopol = item.nopol.toUpperCase().replace(/\s+/g, '');
+          return cleanNopol.includes(input);
+        });
+
+        if (ditemukan) {
+          nopol.textContent = ditemukan.nopol;
+          pemilik.textContent = ditemukan.pemilik;
+          status.innerHTML =
+            `<span class="dot">●</span> 
+             <span class="${ditemukan.status.toLowerCase()}">(${ditemukan.status})</span> ${ditemukan.masa_berlaku}`;
+          lokasi.textContent = ditemukan.lokasi;
+        } else {
+          nopol.textContent = input;
+          pemilik.textContent = "Data tidak ditemukan.";
+          status.textContent = "";
+          lokasi.textContent = "";
+        }
+
+        box.style.display = "block";
+      } catch (e) {
+        alert("Gagal mengambil data.");
+        console.error(e);
+      }
+    }
+  </script>
+
+</body>
+</html>
