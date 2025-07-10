@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PAS KENDARAAN</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background: #f5f7f9;
       padding: 20px;
+      margin: 0;
       text-align: center;
+      color: #333;
     }
 
     h1 {
       color: #007166;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+    }
+
+    .panduan {
+      background: #e6f3f2;
+      border-left: 5px solid #007166;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 500px;
+      text-align: left;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .panduan strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #007166;
     }
 
     input, button {
@@ -27,7 +47,7 @@
     input {
       border: 2px solid #007166;
       width: 80%;
-      max-width: 300px;
+      max-width: 320px;
       text-transform: uppercase;
     }
 
@@ -46,6 +66,9 @@
       border-radius: 12px;
       background: #ffffff;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .nopol {
@@ -73,13 +96,28 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
+
+    footer {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #777;
+    }
   </style>
 </head>
 <body>
 
   <h1>PAS KENDARAAN</h1>
 
-  <input type="text" id="nopolInput" placeholder="Masukkan Nopol (misal: P 3345 DD)">
+  <div class="panduan">
+    <strong>Panduan Pengecekan:</strong>
+    <ul style="padding-left: 20px; margin: 0;">
+      <li>Masukkan nomor polisi kendaraan (contoh: <b>P 3345 DD</b>)</li>
+      <li>Tekan tombol <b>Cek Nopol</b></li>
+      <li>Lihat status kendaraan aktif atau tidak</li>
+    </ul>
+  </div>
+
+  <input type="text" id="nopolInput" placeholder="Masukkan Nopol (contoh: P 3345 DD)">
   <br>
   <button onclick="cariNopol()">Cek Nopol</button>
 
@@ -89,6 +127,10 @@
     <div class="info" id="hasilStatus"></div>
     <div class="info" id="hasilLokasi"></div>
   </div>
+
+  <footer>
+    &copy; 2025 Sistem Informasi PAS Kendaraan | Wilker Kalbut
+  </footer>
 
   <script>
     async function cariNopol() {
@@ -100,7 +142,7 @@
       const lokasi = document.getElementById('hasilLokasi');
 
       if (!input) {
-        alert("Masukkan nopol kendaraan.");
+        alert("Silakan masukkan nomor polisi terlebih dahulu.");
         return;
       }
 
