@@ -13,4 +13,68 @@
     "masa_berlaku": "Expired",
     "lokasi": "Wilker Panarukan"
   }
+[
+  {
+    "nopol": "B 1421 DOH",
+    "pemilik": "PT. PERTAMINA TRANS KONTINENTAL",
+    "status": "Aktif",
+    "masa_berlaku": "1 Tahun",
+    "lokasi": "Pas Wilker Kalbut"
+  },
+  {
+    "nopol": "B 1042 CIF",
+    "pemilik": "PT. PERTAMINA PORT AND LOGISTIC",
+    "status": "Aktif",
+    "masa_berlaku": "1 Tahun",
+    "lokasi": "Pas Wilker Kalbut"
+  },
+  {
+    "nopol": "P 9122 EB",
+    "pemilik": "POYEN",
+    "status": "Aktif",
+    "masa_berlaku": "1 Tahun",
+    "lokasi": "Pas Wilker Panarukan"
+  },
+  {
+    "nopol": "P 8579 EA",
+    "pemilik": "TOKO SAMARINDA",
+    "status": "Aktif",
+    "masa_berlaku": "1 Tahun",
+    "lokasi": "Pas Wilker Panarukan"
+  },
+  {
+    "nopol": "P 9680 VD",
+    "pemilik": "TOKO CAHAYA",
+    "status": "Aktif",
+    "masa_berlaku": "1 Tahun",
+    "lokasi": "Pas Wilker Panarukan"
+  },
+  {
+    "nopol": "N 9985 N",
+    "pemilik": "PE. SUMBER KOLAK",
+    "status": "Aktif",
+    "masa_berlaku": "Bulanan",
+    "lokasi": "Pas Wilker Panarukan"
+  },
+  {
+    "nopol": "P 8602 DU",
+    "pemilik": "EDI MANGLA",
+    "status": "Aktif",
+    "masa_berlaku": "Bulanan",
+    "lokasi": "Pas Wilker Panarukan"
+  },
+  {
+    "nopol": "P 8189 H",
+    "pemilik": "SAJITO",
+    "status": "Aktif",
+    "masa_berlaku": "Bulanan",
+    "lokasi": "Pas Wilker Panarukan"
+  },
+  {
+    "nopol": "P 9530 DU",
+    "pemilik": "MUNADI",
+    "status": "Aktif",
+    "masa_berlaku": "Bulanan",
+    "lokasi": "Pas Wilker Panarukan"
+  }
 ]
