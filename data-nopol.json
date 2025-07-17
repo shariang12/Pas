@@ -1,5 +1,4 @@
-[
-  {
+[{
     "nopol": "P 3345 DD",
     "pemilik": "PT. PERTAMINA STS",
     "status": "Aktif",
@@ -75,5 +74,4 @@
     "status": "Aktif",
     "masa_berlaku": "Bulanan",
     "lokasi": "Pas Wilker Panarukan"
-  }
-]
+  }]
